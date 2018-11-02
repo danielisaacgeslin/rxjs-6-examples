@@ -1,0 +1,5 @@
+{
+    "eslint.options": { "configFile": "opya-frontend/.eslintrc" },
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false
+}
