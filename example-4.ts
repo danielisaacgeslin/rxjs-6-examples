@@ -1,5 +1,5 @@
 /** of (observable) con operadores */
-import { of, Observable } from 'rxjs';
+import { of, Observable, Subject } from 'rxjs';
 import { map, filter, distinct } from 'rxjs/operators';
 
 console.log('\n FIRST map');
@@ -51,6 +51,18 @@ const add = (numberToAdd: number) => (source: Observable<number>) => (
 of(1, 2, 3).pipe(
   add(10), // 1 + 10...then 2 + 10...then 3 + 10
   add(20) // 11 + 20...then 12 + 20...then 13 + 20
+).subscribe(value => console.log(`value is: ${value}`));
+// value is: 31
+// value is: 32
+// value is: 33
+
+
+console.log('\n FIFTH custom operator 2');
+/** add returns a function that returns a function that returns an observable */
+const add2 = (numberToAdd: number) => (source: Observable<number>) => source.pipe(map(value => value + numberToAdd));
+of(1, 2, 3).pipe(
+  add2(10), // 1 + 10...then 2 + 10...then 3 + 10
+  add2(20) // 11 + 20...then 12 + 20...then 13 + 20
 ).subscribe(value => console.log(`value is: ${value}`));
 // value is: 31
 // value is: 32
