@@ -12,7 +12,8 @@
     "start:5": "yarn start example-5.ts",
     "start:6": "yarn start example-6.ts",
     "start:7": "yarn start example-7.ts",
-    "start:8": "yarn start example-8.ts"
+    "start:8": "yarn start example-8.ts",
+    "start:9": "yarn start example-9.ts"
   },
   "dependencies": {
     "@types/node": "^10.12.2",
